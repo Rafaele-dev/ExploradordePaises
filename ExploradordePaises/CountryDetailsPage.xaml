@@ -3,23 +3,250 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ExploradordePaises.Views.CountryDetailsPage"
-    Title="Detalhes do Pais">
+    Title="Detalhes do País"
+    BackgroundColor="#1E1E1E">
 
-    <ScrollView Padding="20">
-        <VerticalStackLayout Spacing="10">
-            <Image Source="{Binding Flags.Png}" HeightRequest="160" Aspect="AspectFit"/>
-            <Label Text="{Binding Name.Common}" FontSize="22" FontAttributes="Bold"/>
-            <Label Text="{Binding Name.Official}" FontSize="16" TextColor="Gray"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Label Text="Capital:" FontAttributes="Bold"/>
-            <Label Text="{Binding CapitalDisplay}"/>
+            <Frame 
+                BackgroundColor="#2D2D30" 
+                HasShadow="True" 
+                CornerRadius="12"
+                Padding="15"
+                HorizontalOptions="Center">
+                <Image 
+                    Source="{Binding Flags.Png}" 
+                    HeightRequest="160" 
+                    WidthRequest="240"
+                    Aspect="AspectFit"/>
+            </Frame>
 
-            <Label Text="Regiao:" FontAttributes="Bold"/>
-            <Label Text="{Binding Region}"/>
+            <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                <Label 
+                    Text="{Binding Name.Common}" 
+                    FontSize="26" 
+                    FontAttributes="Bold"
+                    TextColor="#FFFFFF"
+                    HorizontalTextAlignment="Center"/>
+                <Label 
+                    Text="{Binding Name.Official}" 
+                    FontSize="14" 
+                    TextColor="#B0B0B0"
+                    HorizontalTextAlignment="Center"
+                    FontAttributes="Italic"/>
+            </VerticalStackLayout>
 
-            <Label Text="Moedas:" FontAttributes="Bold"/>
-            <Label Text="{Binding CurrencyDisplay}"/>
+            <Frame 
+                BackgroundColor="#2D2D30" 
+                HasShadow="True" 
+                CornerRadius="12"
+                Padding="0"
+                Margin="0,10">
+
+                <VerticalStackLayout Spacing="0">
+
+                    <Grid Padding="20,15" BackgroundColor="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Column="0"
+                            Text="🏛️ Capital:" 
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#E0E0E0"
+                            VerticalOptions="Center"/>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding CapitalDisplay}"
+                            FontSize="16"
+                            TextColor="#FFFFFF"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" BackgroundColor="#404040" Margin="20,0"/>
+
+                    <Grid Padding="20,15" BackgroundColor="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Column="0"
+                            Text="🌍 Região:" 
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#E0E0E0"
+                            VerticalOptions="Center"/>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding Region}"
+                            FontSize="16"
+                            TextColor="#FFFFFF"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" BackgroundColor="#404040" Margin="20,0"/>
+
+                    <Grid Padding="20,15" BackgroundColor="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Column="0"
+                            Text="📍 Sub-região:" 
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#E0E0E0"
+                            VerticalOptions="Center"/>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding SubregionDisplay}"
+                            FontSize="16"
+                            TextColor="#FFFFFF"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" BackgroundColor="#404040" Margin="20,0"/>
+
+                    <Grid Padding="20,15" BackgroundColor="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Column="0"
+                            Text="💰 Moedas:" 
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#E0E0E0"
+                            VerticalOptions="Center"/>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding CurrencyDisplay}"
+                            FontSize="16"
+                            TextColor="#FFFFFF"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame 
+                BackgroundColor="#2D2D30" 
+                HasShadow="True" 
+                CornerRadius="12"
+                Padding="0"
+                Margin="0,5">
+
+                <VerticalStackLayout Spacing="0">
+
+                    <Grid Padding="20,15" BackgroundColor="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Column="0"
+                            Text="👥 População:" 
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#E0E0E0"
+                            VerticalOptions="Center"/>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding PopulationDisplay}"
+                            FontSize="16"
+                            TextColor="#FFFFFF"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" BackgroundColor="#404040" Margin="20,0"/>
+
+                    <Grid Padding="20,15" BackgroundColor="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label 
+                            Grid.Column="0"
+                            Text="📏 Área:" 
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#E0E0E0"
+                            VerticalOptions="Center"/>
+
+                        <Label 
+                            Grid.Column="1"
+                            Text="{Binding AreaDisplay}"
+                            FontSize="16"
+                            TextColor="#FFFFFF"
+                            HorizontalTextAlignment="End"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame 
+                BackgroundColor="#2D2D30" 
+                HasShadow="True" 
+                CornerRadius="12"
+                Padding="20"
+                Margin="0,5">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label 
+                        Grid.Column="0"
+                        Text="🗣️ Idiomas:" 
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#E0E0E0"
+                        VerticalOptions="Center"/>
+
+                    <Label 
+                        Grid.Column="1"
+                        Text="{Binding LanguagesDisplay}"
+                        FontSize="16"
+                        TextColor="#FFFFFF"
+                        HorizontalTextAlignment="End"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"/>
+                </Grid>
+            </Frame>
+
+            <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-    

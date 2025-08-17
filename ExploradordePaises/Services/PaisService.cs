@@ -18,7 +18,7 @@ public class PaisService
     public async Task<List<Pais>> GetPaisesAsync()
     {
         var result = await _httpClient.GetFromJsonAsync<List<Pais>>(
-            "all?fields=name,capital,region,flags,currencies");
+            "all?fields=name,capital,region,flags,currencies,subregion,population,area,languages");
 
         return result ?? new List<Pais>();
     }

@@ -3,25 +3,112 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ExploradordePaises.MainPage"
-    Title="Explorador de Países">
+    Title="Explorador de Países"
+    BackgroundColor="#1E1E1E">
 
-    <StackLayout>
+    <Grid RowDefinitions="Auto,*" Padding="10">
+
+        <Frame 
+            Grid.Row="0"
+            BackgroundColor="#2D2D30" 
+            HasShadow="True"
+            CornerRadius="10"
+            Padding="15"
+            Margin="0,0,0,10">
+
+            <StackLayout Spacing="10">
+                <Entry 
+                    x:Name="SearchEntry"
+                    Placeholder="Buscar países..."
+                    PlaceholderColor="#B0B0B0"
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#1E1E1E"
+                    FontSize="16"
+                    TextChanged="OnSearchTextChanged"/>
+
+            </StackLayout>
+        </Frame>
+
         <CollectionView
-            ItemsSource="{Binding Paises}"
+            Grid.Row="1"
+            ItemsSource="{Binding PaisesFiltrados}"
             SelectionMode="Single"
             SelectionChanged="OnSelectionChanged"
-            VerticalOptions="FillAndExpand">
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="Transparent">
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" ColumnDefinitions="80,*">
-                        <Image Source="{Binding Flags.Png}" WidthRequest="70" HeightRequest="45" Aspect="AspectFill"/>
-                        <VerticalStackLayout Grid.Column="1" Padding="10,0">
-                            <Label Text="{Binding Name.Common}" FontAttributes="Bold" FontSize="16"/>
-                            <Label Text="{Binding CapitalDisplay}" FontSize="14" TextColor="Gray"/>
-                        </VerticalStackLayout>
-                    </Grid>
+                    <Frame 
+                        BackgroundColor="#2D2D30"
+                        HasShadow="True"
+                        CornerRadius="10"
+                        Padding="15"
+                        Margin="0,5">
+
+                        <Grid 
+                            ColumnDefinitions="60,*"
+                            RowDefinitions="Auto,Auto"
+                            BackgroundColor="Transparent">
+
+                            <Frame 
+                                Grid.Column="0" 
+                                Grid.RowSpan="2"
+                                BackgroundColor="#404040"
+                                HasShadow="False"
+                                CornerRadius="5"
+                                Padding="2"
+                                WidthRequest="50"
+                                HeightRequest="35"
+                                VerticalOptions="Center">
+
+                                <Image 
+                                    Source="{Binding Flags.Png}" 
+                                    Aspect="AspectFill"/>
+                            </Frame>
+
+                            <Label 
+                                Grid.Column="1" 
+                                Grid.Row="0"
+                                Text="{Binding Name.Common}" 
+                                FontAttributes="Bold" 
+                                FontSize="16"
+                                TextColor="#FFFFFF"
+                                VerticalOptions="Center"
+                                Margin="10,0,0,0"/>
+
+                            <StackLayout 
+                                Grid.Column="1" 
+                                Grid.Row="1"
+                                Orientation="Horizontal"
+                                Margin="10,5,0,0">
+
+                                <Label 
+                                    Text="{Binding CapitalDisplay}" 
+                                    FontSize="14" 
+                                    TextColor="#B0B0B0"
+                                    VerticalOptions="Center"/>
+
+                                <Label 
+                                    Text=" • " 
+                                    FontSize="14" 
+                                    TextColor="#B0B0B0"
+                                    VerticalOptions="Center"/>
+
+                                <Label 
+                                    Text="{Binding Region}" 
+                                    FontSize="14" 
+                                    TextColor="#B0B0B0"
+                                    VerticalOptions="Center"/>
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+
         </CollectionView>
-    </StackLayout>
+
+    </Grid>
+
 </ContentPage>
