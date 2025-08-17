@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using ExploradordePaises.Models;
-using ExploradordePaises.ViewModels;
+﻿using ExploradordePaises.Models;
 using ExploradordePaises.Views;
 
 namespace ExploradordePaises;
@@ -10,18 +8,30 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        BindingContext = new MainViewModel();
+        BindingContext = new ViewModels.MainViewModel();
     }
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var pais = e.CurrentSelection.FirstOrDefault() as Pais;
-        if (pais == null) return;
+        try
+        {
+            if (e.CurrentSelection.FirstOrDefault() is Pais paisSelecionado)
+            {
+                var detailsPage = new CountryDetailsPage
+                {
+                    BindingContext = paisSelecionado
+                };
 
-        await Navigation.PushAsync(new CountryDetailsPage { BindingContext = pais });
+                await Navigation.PushAsync(detailsPage);
 
-        // limpa seleção pra poder clicar novamente no mesmo item depois
-        if (sender is CollectionView cv)
-            cv.SelectedItem = null;
+                ((CollectionView)sender).SelectedItem = null;
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Erro ao navegar: {ex.Message}");
+
+            await DisplayAlert("Erro", "Erro ao abrir detalhes do país", "OK");
+        }
     }
 }

@@ -10,7 +10,6 @@ public class Pais
     public Dictionary<string, Moeda>? Currencies { get; set; }
     public Flags? Flags { get; set; }
 
-    // Propriedades para binding no XAML (evita usar First() ou [0] no XAML)
     public string CapitalDisplay => (Capital != null && Capital.Length > 0) ? Capital[0] : "-";
     public string CurrencyDisplay =>
         (Currencies != null && Currencies.Count > 0)
