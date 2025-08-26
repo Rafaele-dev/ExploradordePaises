@@ -40,7 +40,7 @@ O projeto foi desenvolvido seguindo boas práticas de arquitetura de software:
 
 ### Tecnologias Utilizadas
 - **.NET MAUI** - Framework multiplataforma
-- **REST Countries API** - Fonte de dados públicos
+- **REST Countries API** - Fonte de dados públicos 
 - **HttpClient** - Consumo da API REST
 - **MVVM Pattern** - Arquitetura de apresentação
 - **Data Binding** - Vinculação de dados
