@@ -48,7 +48,7 @@ O projeto foi desenvolvido seguindo boas práticas de arquitetura de software:
 ## 🚀 Como Executar
 
 ### Pré-requisitos
-- **Windows Machine** (obrigatório)
+- **Windows Machine** 
 - Visual Studio 2022 (versão 17.8 ou superior)
 - Workload ".NET Multi-platform App UI development" instalado
 - .NET 8.0 SDK
